@@ -1,0 +1,454 @@
+:root {
+    --plum: #6A1A4D;
+    --plum-dark: #51123A;
+    --plum-soft: #812B62;
+    --gold: #F1A61F;
+    --bg: #F7F5F6;
+    --text: #1A1A1A;
+    --muted: #8793A3;
+    --line: #E5E5E5;
+    --font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: var(--font); }
+body { background: var(--bg); color: var(--text); }
+a { color: inherit; }
+
+.app-container { display: flex; min-height: 100vh; }
+
+/* SIDEBAR */
+.sidebar { width: 238px; background: var(--plum); color: #fff; display: flex; flex-direction: column; padding: 30px 12px 20px; position: sticky; top: 0; height: 100vh; }
+.brand { display: flex; align-items: center; gap: 14px; padding: 0 9px 30px; border-bottom: 1px solid rgba(255,255,255,.35); }
+.brand img { width: 49px; height: 49px; object-fit: contain; background: var(--gold); border-radius: 8px; padding: 5px; }
+.brand h2 { font-size: 19px; margin-bottom: 3px; }
+.brand p { font-size: 10px; color: #D8C4D1; }
+.menu { margin-top: 27px; }
+.menu a { display: flex; align-items: center; gap: 12px; padding: 14px 18px; margin-bottom: 5px; color: #CDB5C6; text-decoration: none; font-size: 13px; font-weight: 600; border-radius: 8px; border-left: 3px solid transparent; }
+.menu a:hover { background: rgba(255,255,255,.06); }
+.menu a.active { background: var(--plum-soft); color: #fff; border-left-color: var(--gold); }
+.menu-icon { font-size: 18px; color: var(--gold); width: 22px; text-align: center; }
+.sidebar-bottom { margin-top: auto; border-top: 1px solid rgba(255,255,255,.35); padding: 18px 8px 0; display: flex; align-items: center; justify-content: space-between; }
+.profile { display: flex; align-items: center; gap: 9px; min-width: 0; }
+.profile-avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--gold); color: var(--plum); font-weight: bold; font-size: 14px; display: grid; place-items: center; flex-shrink: 0; }
+.profile-info h4 { font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 120px; }
+.profile-info p { font-size: 9px; color: #D8C4D1; margin-top: 3px; }
+.logout-btn { border: none; background: transparent; color: #fff; font-size: 21px; cursor: pointer; }
+
+/* MAIN */
+.main-content { flex: 1; min-width: 0; }
+.topbar { height: 75px; background: #fff; box-shadow: 0 3px 8px rgba(0,0,0,.12); display: flex; align-items: center; justify-content: flex-end; padding: 0 25px; }
+.topbar-search { width: 260px; position: relative; }
+.topbar-search input { width: 100%; height: 36px; border: 1px solid #DDD; border-radius: 7px; padding: 0 34px 0 12px; font-size: 12px; outline: none; }
+.topbar-search span { position: absolute; right: 11px; top: 50%; transform: translateY(-50%); color: var(--muted); }
+.content { padding: 28px 25px 40px; }
+
+.page-heading { display: flex; justify-content: space-between; align-items: center; margin-bottom: 26px; gap: 15px; }
+.eyebrow { color: var(--plum); font-size: 14px; font-weight: bold; letter-spacing: 4px; margin-bottom: 2px; }
+.page-heading h1 { font-size: 32px; font-weight: 400; margin-bottom: 5px; }
+.subtitle { color: var(--muted); font-size: 12px; }
+
+/* BUTTON */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: var(--plum); color: #fff; text-decoration: none; padding: 12px 17px; border-radius: 7px; font-size: 12px; font-weight: bold; border: none; cursor: pointer; box-shadow: 0 3px 5px rgba(0,0,0,.15); }
+.btn:hover { background: var(--plum-dark); }
+.btn-light { background: #fff; color: var(--text); box-shadow: none; border: 1px solid #DDD; }
+.btn-outline { background: transparent; color: var(--plum); border: 1px solid var(--plum); box-shadow: none; }
+
+/* ALERT */
+.alert { padding: 12px 15px; border-radius: 7px; font-size: 12px; margin-bottom: 18px; }
+.alert-success { background: #E8F6EC; color: #1E7A3C; }
+.alert-error { background: #FDE8E8; color: #B42318; }
+
+/* STATISTIK */
+.statistics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 25px; }
+.stat-card { background: #fff; min-height: 62px; padding: 12px 14px; border-radius: 7px; border-left: 4px solid var(--gold); box-shadow: 0 3px 8px rgba(0,0,0,.10); display: flex; align-items: center; gap: 11px; }
+.stat-icon { width: 30px; height: 30px; border-radius: 7px; display: grid; place-items: center; font-size: 17px; }
+.stat-icon.purple { background: #F5EAF1; color: #8A1B61; }
+.stat-icon.blue { background: #E7F1FA; color: #1876B9; }
+.stat-icon.orange { background: #FFF2E2; color: #D47A00; }
+.stat-number { font-size: 22px; font-weight: bold; }
+.stat-label { font-size: 9px; color: #9AA2AD; margin-top: 2px; }
+
+/* CARD & LIST */
+.card { background: #fff; border-radius: 8px; box-shadow: 0 3px 8px rgba(0,0,0,.10); overflow: hidden; }
+.card-header { display: flex; justify-content: space-between; align-items: center; gap: 15px; padding: 14px 17px; border-bottom: 1px solid var(--line); }
+.card-title { font-size: 14px; }
+.card-desc { font-size: 9px; color: var(--muted); margin-top: 4px; }
+.filters { display: flex; gap: 10px; }
+.filters input, .filters select { padding: 8px 10px; border: 1px solid #DDD; border-radius: 6px; font-size: 11px; background: #fff; min-width: 150px; outline: none; }
+.list-item { display: flex; align-items: center; gap: 12px; padding: 13px 17px; border-bottom: 1px solid var(--line); text-decoration: none; color: inherit; }
+.list-item:last-child { border-bottom: none; }
+a.list-item:hover { background: #FAF6F9; }
+.doc-icon { width: 30px; height: 30px; background: #F5EAF1; color: #8A1B61; display: grid; place-items: center; border-radius: 5px; font-size: 16px; flex-shrink: 0; }
+.list-info h4 { font-size: 11px; margin-bottom: 3px; }
+.list-info p { font-size: 10px; color: var(--muted); margin-bottom: 2px; }
+.list-info .strong { font-weight: bold; color: var(--text); }
+.empty-state { padding: 34px 17px; text-align: center; color: var(--muted); font-size: 12px; }
+
+/* BADGE */
+.badge { display: inline-block; padding: 5px 10px; border-radius: 20px; font-size: 9px; font-weight: bold; background: #FFF2E2; color: #B96A00; white-space: nowrap; }
+
+@media (max-width: 850px) {
+    .sidebar { width: 190px; }
+    .content { padding: 22px 15px; }
+    .statistics { gap: 12px; }
+    .card-header { align-items: flex-start; flex-direction: column; }
+    .filters { width: 100%; }
+    .filters input, .filters select { min-width: 0; width: 50%; }
+}
+
+/* ===== FORM ===== */
+.form-grid { display: grid; grid-template-columns: 1fr 270px; gap: 20px; align-items: start; }
+.form-card-header { padding: 14px 18px; border-bottom: 1px solid var(--line); }
+.form-card-header h3 { font-size: 13px; font-weight: 400; }
+.form-card-header p { font-size: 9px; color: var(--muted); margin-top: 4px; }
+.form-card-body { padding: 18px; }
+.form-group { margin-bottom: 18px; }
+.form-group label { display: block; font-size: 11px; font-weight: bold; margin-bottom: 7px; }
+.required { color: #B42318; }
+.form-control { width: 100%; border: 1px solid #DDD; border-radius: 6px; padding: 10px 12px; font-size: 12px; background: #fff; outline: none; color: var(--text); }
+.form-control::placeholder { color: #B5BBC4; }
+.form-control:focus { border-color: var(--plum); }
+textarea.form-control { min-height: 120px; resize: vertical; line-height: 1.5; }
+.form-hint { font-size: 10px; color: var(--muted); margin-top: 6px; }
+.field-error { color: #B42318; font-size: 10px; margin-top: 5px; }
+.form-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 8px; padding-top: 16px; border-top: 1px solid var(--line); }
+
+/* kartu info di kanan */
+.side-card { padding: 18px; }
+.side-card .side-icon { width: 34px; height: 34px; border-radius: 8px; background: #F5EAF1; color: var(--plum); display: grid; place-items: center; font-size: 17px; margin-bottom: 12px; }
+.side-card h3 { font-size: 13px; font-weight: 400; margin-bottom: 4px; }
+.side-card .side-text { font-size: 10px; color: var(--muted); line-height: 1.5; padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px solid var(--line); }
+.side-card h4 { font-size: 10px; margin-bottom: 8px; }
+.side-card ul { padding-left: 16px; font-size: 10px; color: #666; line-height: 1.8; }
+
+@media (max-width: 1000px) {
+    .form-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== TABEL ===== */
+.table-wrapper { width: 100%; overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; min-width: 650px; }
+thead { background: #D9D9D9; }
+th { padding: 12px 17px; text-align: left; color: #444; font-size: 10px; font-weight: bold; }
+td { padding: 15px 17px; border-top: 1px solid #EEE; font-size: 11px; vertical-align: middle; }
+tbody tr:hover { background: #FAF6F9; }
+.cell-number { color: var(--plum); font-weight: bold; margin-bottom: 4px; }
+.cell-sub { color: var(--muted); font-size: 10px; }
+.cell-bold { font-weight: bold; }
+.link-action { color: var(--plum); text-decoration: none; font-size: 11px; font-weight: bold; }
+.link-action:hover { text-decoration: underline; }
+
+/* ===== VARIAN BADGE ===== */
+.badge.blue { background: #E7F1FA; color: #1876B9; }
+.badge.green { background: #E8F6EC; color: #1E7A3C; }
+.badge.red { background: #FDE8E8; color: #B42318; }
+.badge.purple { background: #F5EAF1; color: #8A1B61; }
+
+/* ===== FORM TUGASKAN DI TABEL ===== */
+.assign-form { display: flex; gap: 8px; align-items: center; }
+.assign-form select { padding: 8px 10px; border: 1px solid #DDD; border-radius: 6px; font-size: 11px; background: #fff; min-width: 150px; outline: none; }
+.assign-form select:focus { border-color: var(--plum); }
+.assign-form .btn { padding: 8px 14px; font-size: 11px; }
+
+/* Daftar Tugas Tim Hukum */
+.tim-tugas {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.tim-tugas-heading {
+    margin-bottom: 24px;
+}
+
+.tim-tugas-eyebrow {
+    color: #6A1A4D;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.tim-tugas-heading h1 {
+    margin: 8px 0;
+    color: #222;
+    font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.tim-tugas-heading > p:last-child {
+    color: #6c7280;
+}
+
+.tim-tugas-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 28px;
+    border-radius: 16px;
+    background: #6A1A4D;
+    color: #fff;
+}
+
+.tim-tugas-banner-label {
+    color: #F1A61F;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.tim-tugas-banner h2 {
+    margin: 8px 0;
+    color: #fff;
+}
+
+.tim-tugas-banner p:last-child {
+    margin-bottom: 0;
+    color: #f4e7ef;
+}
+
+.tim-tugas-banner-total {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 110px;
+    padding: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+}
+
+.tim-tugas-banner-total strong {
+    color: #F1A61F;
+    font-size: 2rem;
+}
+
+.tim-tugas-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    margin: 20px 0 32px;
+}
+
+.tim-tugas-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-height: 120px;
+    padding: 20px;
+    border: 1px solid #e9e3e7;
+    border-left: 4px solid #F1A61F;
+    border-radius: 12px;
+    background: #fff;
+}
+
+.tim-tugas-stat span,
+.tim-tugas-stat small {
+    color: #6c7280;
+}
+
+.tim-tugas-stat strong {
+    color: #6A1A4D;
+    font-size: 2rem;
+}
+
+.tim-tugas-section-header {
+    margin-bottom: 16px;
+}
+
+.tim-tugas-section-header h2 {
+    margin-bottom: 6px;
+}
+
+.tim-tugas-section-header p {
+    color: #6c7280;
+}
+
+.tim-tugas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.tim-tugas-card,
+.tim-tugas-empty {
+    padding: 22px;
+    border: 1px solid #e9e3e7;
+    border-radius: 14px;
+    background: #fff;
+}
+
+.tim-tugas-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tim-tugas-number {
+    color: #6A1A4D;
+    font-weight: 700;
+}
+
+.tim-tugas-badge {
+    padding: 5px 10px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.tim-tugas-badge-baru {
+    color: #6A1A4D;
+    background: #f3e7ef;
+}
+
+.tim-tugas-badge-revisi {
+    color: #925a00;
+    background: #fff1d6;
+}
+
+.tim-tugas-card h3 {
+    margin: 18px 0;
+    color: #25212a;
+}
+
+.tim-tugas-details {
+    display: grid;
+    gap: 12px;
+    margin: 0 0 22px;
+}
+
+.tim-tugas-details div {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.tim-tugas-details dt {
+    color: #6c7280;
+}
+
+.tim-tugas-details dd {
+    margin: 0;
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+.tim-tugas-card-link {
+    display: inline-block;
+    color: #6A1A4D;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.tim-tugas-card-link:hover {
+    text-decoration: underline;
+}
+
+.tim-tugas-empty {
+    text-align: center;
+    color: #6c7280;
+}
+
+.tim-tugas-empty h3 {
+    margin-bottom: 8px;
+    color: #25212a;
+}
+
+@media (max-width: 1100px) {
+    .tim-tugas-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .tim-tugas-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .tim-tugas-banner {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .tim-tugas-stats,
+    .tim-tugas-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tim-tugas-details div {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .tim-tugas-details dd {
+        text-align: left;
+    }
+}
+
+/* Menu Tim Hukum yang belum tersedia */
+.menu .menu-disabled {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    color: rgba(255, 255, 255, 0.55);
+    cursor: not-allowed;
+}
+
+/* Kartu tugas dibuat satu kolom pada layar yang lebih sempit */
+@media (max-width: 900px) {
+    .tim-tugas-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Form hasil penanganan Tim Hukum */
+.tim-tugas-card h2,
+.tim-tugas-card h3 {
+    color: #34212d;
+}
+
+.tim-tugas-card h3 {
+    margin-top: 24px;
+    margin-bottom: 8px;
+}
+
+.tim-tugas-card p {
+    line-height: 1.6;
+}
+
+.tim-tugas-card textarea {
+    box-sizing: border-box;
+    padding: 14px;
+    border: 1px solid #d8cdd4;
+    border-radius: 10px;
+    font: inherit;
+    line-height: 1.5;
+    resize: vertical;
+}
+
+.tim-tugas-card textarea:focus {
+    outline: 2px solid #7F285D;
+    outline-offset: 2px;
+    border-color: #7F285D;
+}
+
+.tim-tugas-card button[type="submit"] {
+    padding: 12px 20px;
+    border: 0;
+    border-radius: 10px;
+    background: #6A1A4D;
+    color: #fff;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.tim-tugas-card button[type="submit"]:hover {
+    background: #7F285D;
+}
+
+.tim-tugas-card button[type="submit"]:focus-visible {
+    outline: 3px solid #F1A61F;
+    outline-offset: 3px;
+}
